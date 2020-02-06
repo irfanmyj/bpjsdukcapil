@@ -1,7 +1,7 @@
 <?php
-namespace Nsulistiyawan\Bpjs\Data;
+namespace Bpjsdukcapil\Bpjs\Data;
 
-use Nsulistiyawan\Bpjs\DukcapilService;
+use Bpjsdukcapil\Bpjs\DukcapilService;
 
 class Penduduk extends DukcapilService
 {

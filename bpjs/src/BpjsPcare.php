@@ -1,5 +1,5 @@
 <?php
-namespace Nsulistiyawan\Bpjs;
+namespace Bpjsdukcapil\Bpjs;
 
 use GuzzleHttp\Client;
 
@@ -47,6 +47,21 @@ class BpjsPcare{
     private $secret_key;
 
     /**
+     * @var int
+     */
+    private $kode_ppk;
+
+    /**
+     * @var string
+     */
+    private $password;
+
+    /**
+     * @var string
+     */
+    private $kode_app;
+
+    /**
      * @var string
      */
     private $base_url;
@@ -78,7 +93,7 @@ class BpjsPcare{
             'X-cons-id' => $this->cons_id,
             'X-Timestamp' => $this->timestamp,
             'X-Signature' => $this->signature,
-            'X-Authorization' => $this->authorization
+            'X-Authorization' => "Basic ".$this->authorization
         ];
         return $this;
     }
@@ -100,7 +115,7 @@ class BpjsPcare{
     }
 
     protected function setAuthorization(){
-        $data = '10270501:VISI12@swg114477';
+        $data = $this->kode_ppk.':'.$this->password.':'.$this->kode_app;
         $encodeAuth = base64_encode($data);
         $this->authorization = $encodeAuth;
         return $this;
@@ -121,7 +136,7 @@ class BpjsPcare{
             $response = $e->getResponse();
         }
         //return $response;
-        return $this->headers;
+        return $this->response;
     }
 
     protected function post($feature, $data = [], $headers = [])
