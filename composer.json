@@ -1,0 +1,21 @@
+{
+    "name": "irfanmyj/bpjsdukcapil",
+    "description": "Library API BPJS & DUKCAPIL",
+    "type": "package",
+    "require": {
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bpjsdukcapil\\Bpjs\\": "src/"
+        }
+    },
+    "license": "mit",
+    "authors": [
+        {
+            "name": "irfan muhammad yusup jajuli",
+            "email": "irfanmyj@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
